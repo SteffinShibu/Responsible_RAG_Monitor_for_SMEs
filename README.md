@@ -2,6 +2,12 @@
 
 A RAG (Retrieval-Augmented Generation) system for SME policy documents with responsible AI monitoring, built as a portfolio project for responsible AI adoption research.
 
+## Live Demo
+
+**Streamlit app:** https://steffinshibu-responsible-rag-monitor-fo-appstreamlit-app-bmjbbv.streamlit.app/
+
+This deployed V1 currently demonstrates the user-facing RAG assistant module. Later phases will add RAGAS-style evaluation, LLM-as-judge scoring, statistical process monitoring, productivity simulation, and governance artefacts.
+
 ## Setup
 
 ### 1. Clone and prepare environment
