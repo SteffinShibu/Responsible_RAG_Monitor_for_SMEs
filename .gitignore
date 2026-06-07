@@ -2,6 +2,8 @@
 __pycache__/
 *.pyc
 .DS_Store
+venv/
 vectorstore/faiss_index/*.faiss
 vectorstore/faiss_index/*.json
 vectorstore/faiss_index/*.pkl
+data/evaluation_results.csv

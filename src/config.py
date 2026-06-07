@@ -30,10 +30,19 @@ CHUNK_OVERLAP_TOKENS = 20
 # Retrieval settings
 RETRIEVAL_TOP_K = 5
 
-# LLM settings (Groq — OpenAI-compatible API)
+# LLM settings — Answer generator (Groq via OpenAI-compatible API)
 GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
 GROQ_BASE_URL = "https://api.groq.com/openai/v1"
-# Best Groq model for RAG: llama-3.3-70b-versatile
-# Alternatives: llama-3.3-70b-versatile, mixtral-8x7b-32768
-LLM_MODEL_NAME = "llama-3.1-8b-instant"
+LLM_MODEL_NAME = os.getenv("LLM_MODEL_NAME", "llama-3.1-8b-instant")
 LLM_TEMPERATURE = 0.1
+
+# LLM settings — Evaluator (separate from generator)
+# Can be: gemini (uses GEMINI_API_KEY), groq (uses GROQ_API_KEY), mistral (uses MISTRAL_API_KEY)
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
+MISTRAL_API_KEY = os.getenv("MISTRAL_API_KEY", "")
+MISTRAL_BASE_URL = "https://api.mistral.ai/v1"
+EVALUATOR_PROVIDER = os.getenv("EVALUATOR_PROVIDER", "gemini")
+EVALUATOR_MODEL_NAME = os.getenv("EVALUATOR_MODEL_NAME", "gemini-1.5-flash-8b")
+
+# Evaluation results path
+EVALUATION_RESULTS_PATH = PROJECT_ROOT / "data" / "evaluation_results.csv"
