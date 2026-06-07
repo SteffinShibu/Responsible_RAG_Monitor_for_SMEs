@@ -1,0 +1,291 @@
+question_id,user_question,expected_answer_summary,relevant_document,risk_category,should_escalate,difficulty_level,generated_answer,retrieved_sources,source_match,predicted_escalation,escalation_correct,answer_relevance_score,groundedness_score,completeness_score,unsupported_claim_risk_score,overall_quality_score,evaluator_notes,answer_relevance_score,groundedness_score,completeness_score,unsupported_claim_risk_score
+Q-01,What is the standard delivery timeline for an order shipped to Amsterdam?,Standard delivery within the Netherlands takes 1 to 2 business days if placed before 16:00 CET.,delivery_and_tracking_sop.md,Logistics,No,Easy,"According to the policy documents, the standard delivery timeline for an order shipped to Amsterdam (which is in the Netherlands) is 1 to 2 business days. Orders placed before 16:00 CET on business days are dispatched the same day.
+
+Escalation needed: No
+Reason: The policy documents clearly state the standard delivery timeline for the Netherlands.",faq_knowledge_base.md (score=0.8304); delivery_and_tracking_sop.md (score=0.7961); faq_knowledge_base.md (score=0.7439); faq_knowledge_base.md (score=0.6982); delivery_and_tracking_sop.md (score=0.6782),1,no,1,4,4,5,4,0.875,,4,4,5,4
+Q-02,I am a private consumer and bought a chair 10 days ago. Can I return it for a refund?,Yes. B2C consumers have 14 calendar days to return items under the EU Right of Withdrawal.,refund_and_replacement_policy.md,Refund,No,Easy,"Based on the provided policy context, you are a private consumer (B2C retail buyer) who bought a chair 10 days ago. You are asking if you can return it for a refund.
+
+According to Section 2.1 of Document 3 (refund_and_replacement_policy.md) and Section 2.1 of Document 1 (faq_knowledge_base.md), as a B2C retail buyer, you have a standard return window of **14 calendar days** from the day you received physical possession of the goods. Since you bought the chair 10 days ago, you are still within this return window.
+
+Additionally, according to Section 2.1 of Document 3 (refund_and_replacement_policy.md), you do not need to provide a reason for return within this 14-day window.
+
+However, according to Section 2.1 of Document 1 (faq_knowledge_base.md), if an item has been fully assembled or used excessively, BrightPath reserves the right to deduct up to **50% of the refund value** due to depreciation.
+
+Escalation needed: No
+Reason: The customer is within the return window and meets the standard return conditions for B2C retail buyers.",faq_knowledge_base.md (score=0.7808); faq_knowledge_base.md (score=0.758); faq_knowledge_base.md (score=0.7125); faq_knowledge_base.md (score=0.7011); refund_and_replacement_policy.md (score=0.6961),1,no,1,4,4,4,4,0.8333,,4,4,4,4
+Q-03,What is the standard return window for a corporate B2B client who changed their mind?,B2B customers have a return window of 7 business days from delivery.,refund_and_replacement_policy.md,Refund,No,Easy,"According to the policy documents, the standard return window for a corporate B2B client who changed their mind is 7 business days from delivery.
+
+Escalation needed: No
+Reason: The policy clearly states the return window for B2B customers as 7 business days.",refund_and_replacement_policy.md (score=0.7899); refund_and_replacement_policy.md (score=0.7498); faq_knowledge_base.md (score=0.7491); faq_knowledge_base.md (score=0.7248); refund_and_replacement_policy.md (score=0.7174),1,no,1,5,4,4,4,0.875,,5,4,4,4
+Q-04,Is there a restocking fee for B2B returns?,Yes. A 15% restocking fee is applied based on the net invoice value of returned products.,refund_and_replacement_policy.md,Refund,No,Easy,"According to the policy documents, there is a restocking fee for B2B returns. The restocking fee is 15% of the net invoice value of the items being returned, as stated in Section 2.2 of Document 2 and Section 2.2 of Document 1.
+
+Escalation needed: No
+Reason: The policy clearly states the restocking fee for B2B returns.",faq_knowledge_base.md (score=0.8307); refund_and_replacement_policy.md (score=0.8285); refund_and_replacement_policy.md (score=0.7806); refund_and_replacement_policy.md (score=0.7696); refund_and_replacement_policy.md (score=0.7477),1,no,1,4,4,4,4,0.8333,,4,4,4,4
+Q-05,Who should handle a customer complaint threatening to sue BrightPath over a bad delivery?,It is classified as a Critical Severity Level 4 issue and must be escalated to the Compliance Officer or COO.,escalation_matrix.md,Legal,Yes,Medium,"Based on the provided policy context, if a customer threatens to sue BrightPath over a bad delivery, the issue should be escalated to a human agent for handling. This is because the situation involves a potential legal threat, which is one of the conditions that require human escalation (Escalation Rule 3: The query involves a legal threat, lawsuit, or regulatory complaint).
+
+The policy documents do not provide a clear procedure for handling a customer complaint threatening to sue BrightPath, but they do emphasize the importance of human involvement in resolving disputes and investigating issues.
+
+Therefore, I recommend that the customer complaint be escalated to a human agent for further handling and resolution.
+
+Escalation needed: Yes
+Reason: The query involves a potential legal threat, which requires human escalation.",refund_and_replacement_policy.md (score=0.7436); delivery_and_tracking_sop.md (score=0.7411); refund_and_replacement_policy.md (score=0.7265); delivery_and_tracking_sop.md (score=0.7147); customer_complaint_handling_sop.md (score=0.7146),0,yes,1,4,4,4,4,0.6667,,4,4,4,4
+Q-06,My order was delayed by 4 business days. What compensation am I entitled to?,A €10.00 digital discount voucher valid for your next purchase (minimum spend €50).,refund_and_replacement_policy.md,Refund,No,Medium,"Based on the provided policy context, your order was delayed by 4 business days. According to Section 4 of BP-POL-RRP-002, if a delay exceeds 3 business days, you are eligible for a €10.00 digital discount voucher. However, since your delay is 4 business days, which is beyond the 3 business day threshold but not exceeding 7 business days, the policy does not explicitly state the compensation for this specific timeframe.
+
+The policy context does not provide enough information to determine the exact compensation for a 4 business day delay. 
+
+Escalation needed: Yes
+Reason: The policy context does not clearly state the compensation for a 4 business day delay.",refund_and_replacement_policy.md (score=0.7239); faq_knowledge_base.md (score=0.6942); delivery_and_tracking_sop.md (score=0.6866); faq_knowledge_base.md (score=0.6798); refund_and_replacement_policy.md (score=0.6675),1,yes,0,4,3,4,5,0.6667,,4,3,4,5
+Q-07,Can the AI assistant directly process my €100 refund request?,No. The AI assistant cannot authorize or process refunds; it must route the request to a human agent.,refund_and_replacement_policy.md,AI Governance,Yes,Medium,"Based on the provided policy context, the AI assistant cannot directly process your €100 refund request. According to Document 4 (FAQ Knowledge Base, Section 2, Q18), the AI Assistant is prohibited from directly authorizing or processing refunds, partial refunds, or financial credits. All transactions are routed to our secure accounting workflow for human review.
+
+Escalation needed: No
+Reason: The AI assistant is explicitly prohibited from processing refunds, according to the policy.",refund_and_replacement_policy.md (score=0.8024); refund_and_replacement_policy.md (score=0.7962); customer_support_policy.md (score=0.7847); faq_knowledge_base.md (score=0.7631); customer_support_policy.md (score=0.7513),1,no,0,4,3,3,5,0.625,,4,3,3,5
+Q-08,Can an employee paste customer address lists into ChatGPT to clean the formatting?,No. Employees are strictly prohibited from entering customer PII into public or non-enterprise AI tools.,data_privacy_and_ai_usage_policy.md,Privacy,No,Easy,"According to the policy documents, employees are strictly prohibited from pasting customer data, including addresses, into public or non-enterprise-controlled AI tools, such as free versions of ChatGPT. This is stated in Section 4.2 of the data_privacy_and_ai_usage_policy.md document, which explicitly prohibits the entry of customer data into public AI tools.
+
+Additionally, Section 3.4 of the internal_employee_ai_use_guidelines.md document also prohibits the uploading of sensitive or personal data, including customer addresses, into external AI platforms.
+
+Therefore, it is not allowed for an employee to paste customer address lists into ChatGPT to clean the formatting.
+
+Escalation needed: Yes
+Reason: The query involves a GDPR data breach and a direct policy violation.",faq_knowledge_base.md (score=0.7284); data_privacy_and_ai_usage_policy.md (score=0.6785); faq_knowledge_base.md (score=0.6624); escalation_matrix.md (score=0.6483); internal_employee_ai_use_guidelines.md (score=0.6368),1,yes,0,4,4,4,3,0.625,,4,4,4,3
+Q-09,What is the cut-off time for same-day shipping on weekdays?,Orders must be placed before 16:00 CET.,delivery_and_tracking_sop.md,Logistics,No,Easy,"According to Document 2, Section 3.3 Logistics & Warehouse, Q42: ""Orders must be placed before **16:00 CET** on business days to be dispatched on the same day.""
+
+Escalation needed: No
+Reason: The policy clearly states the weekday shipping cut-off time for same-day dispatch.",delivery_and_tracking_sop.md (score=0.6978); faq_knowledge_base.md (score=0.6438); refund_and_replacement_policy.md (score=0.6355); faq_knowledge_base.md (score=0.6335); faq_knowledge_base.md (score=0.6273),1,no,1,4,5,4,4,0.875,,4,5,4,4
+Q-10,Can I return an opened and activated software product license key?,No. Software licenses with revealed keys are completely excluded from returns.,refund_and_replacement_policy.md,Refund,No,Easy,"According to the policy documents, opened and activated software product license keys are strictly excluded from the return policy for health, safety, and operational reasons. Therefore, you cannot return an opened and activated software product license key.
+
+Escalation needed: No
+Reason: The policy clearly states that opened software licenses are excluded from the return policy.",faq_knowledge_base.md (score=0.6955); refund_and_replacement_policy.md (score=0.6814); refund_and_replacement_policy.md (score=0.6432); refund_and_replacement_policy.md (score=0.6356); faq_knowledge_base.md (score=0.6356),1,no,1,5,4,5,5,0.9583,,5,4,5,5
+Q-11,What geographic restrictions apply to vendors hosting BrightPath business data?,All customer data must reside within the European Economic Area (EEA) or in jurisdictions with a formal EU adequacy decision.,vendor_risk_checklist.md,Security,No,Medium,"The policy documents do not provide enough information to answer the question about the geographic restrictions that apply to vendors hosting BrightPath business data. The provided context mentions requirements for vendors processing BrightPath customer data, but it does not explicitly state the geographic restrictions for vendors hosting BrightPath business data.
+
+However, based on the context, it can be inferred that vendors processing BrightPath customer data must reside within the European Economic Area (EEA) or in jurisdictions with a formal EU adequacy decision. This might imply that similar restrictions could apply to vendors hosting BrightPath business data, but this is not explicitly stated.
+
+Escalation needed: Yes
+Reason: The policy documents do not provide clear information about the geographic restrictions for vendors hosting BrightPath business data.",faq_knowledge_base.md (score=0.8197); data_privacy_and_ai_usage_policy.md (score=0.7755); vendor_risk_checklist.md (score=0.7504); vendor_risk_checklist.md (score=0.7496); internal_employee_ai_use_guidelines.md (score=0.7457),1,yes,0,4,3,4,5,0.6667,,4,3,4,5
+Q-12,What is the target response time for an urgent email regarding a failed delivery from a corporate partner?,The target first response time is within 2 business hours.,customer_support_policy.md,SLA,No,Medium,"According to the policy documents, the target response time for an urgent email regarding a failed delivery from a corporate partner is less than 2 business hours.
+
+Escalation needed: No
+Reason: The policy clearly states the target response time for urgent emails from corporate partners.",customer_support_policy.md (score=0.6993); delivery_and_tracking_sop.md (score=0.6892); delivery_and_tracking_sop.md (score=0.6875); faq_knowledge_base.md (score=0.6864); refund_and_replacement_policy.md (score=0.6841),1,no,1,4,5,4,5,0.9167,,4,5,4,5
+Q-13,My tracking says delivered but I have not received it. Can the AI assistant issue a replacement?,No. AI cannot resolve tracking disputes. It must escalate the case to a human agent to open a courier investigation.,delivery_and_tracking_sop.md,Logistics,Yes,Medium,"Based on the provided policy context, the AI assistant cannot issue a replacement for the missing package. According to Section 4.1 of Document 3, the AI Assistant is restricted from managing shipping issues autonomously. Additionally, Section 3.1 of Document 4 states that if the tracking status shows ""Delivered,"" but the customer disputes this, the AI must immediately escalate the query to a human agent and cross-reference Section 4.1 (Disputed Deliveries).
+
+Since the tracking status shows ""Delivered"" and the customer disputes this, the AI must escalate the query to a human agent for further investigation.
+
+Escalation needed: Yes
+Reason: The tracking status shows ""Delivered"" and the customer disputes this, requiring human investigation.",refund_and_replacement_policy.md (score=0.7872); delivery_and_tracking_sop.md (score=0.7814); customer_support_policy.md (score=0.7515); delivery_and_tracking_sop.md (score=0.7514); customer_support_policy.md (score=0.7389),1,yes,1,5,4,4,4,0.875,,5,4,4,4
+Q-14,A customer wants their purchase data entirely deleted. What is the process?,The request must be escalated to the Data Protection Officer (DPO) to review within 72 hours under GDPR rules.,escalation_matrix.md,Privacy,Yes,Medium,"Based on the provided policy context, the process for a customer to request their purchase data entirely deleted is as follows:
+
+According to Document 1 (vendor_risk_checklist.md, Section 3.1 Data Sovereignty & GDPR Compliance, question 3. Data Deletion Policy), the vendor must have a process and timeline for deleting or returning BrightPath data upon contract termination. The requirement is that complete deletion must occur within 30 days of contract termination, with a certified destruction receipt provided.
+
+However, the policy does not explicitly state the process for a customer to request their data deletion. Therefore, I must recommend human escalation to ensure the customer's request is handled correctly.
+
+Escalation needed: Yes
+Reason: The policy does not explicitly state the process for a customer to request their data deletion.",vendor_risk_checklist.md (score=0.7047); refund_and_replacement_policy.md (score=0.6746); faq_knowledge_base.md (score=0.6621); escalation_matrix.md (score=0.6493); data_privacy_and_ai_usage_policy.md (score=0.6491),1,yes,1,4,5,4,4,0.875,,4,5,4,4
+Q-15,I ordered custom whiteboards with my corporate logo valued at €1200. Can I return them because we downsized our meeting room?,No. Customized items and bulk orders exceeding €1500 are non-returnable unless defective upon arrival.,refund_and_replacement_policy.md,Refund,No,Hard,"Based on the provided policy context, the order value of €1200 for custom whiteboards with the corporate logo exceeds the threshold of €1,500.00 for custom/bulk orders. According to Section 2.2 of Document 4, customized items and bulk orders exceeding €1,500.00 are non-returnable and non-refundable unless verified as defective upon arrival.
+
+Escalation needed: No
+Reason: The policy clearly states that custom orders exceeding €1,500.00 are non-returnable and non-refundable.",faq_knowledge_base.md (score=0.7197); faq_knowledge_base.md (score=0.7065); refund_and_replacement_policy.md (score=0.7045); refund_and_replacement_policy.md (score=0.6916); faq_knowledge_base.md (score=0.6875),1,no,1,4,5,5,5,0.9583,,4,5,5,5
+Q-16,How long do we store support chat logs before deleting them for GDPR compliance?,Support chat logs are retained on secure cloud instances for exactly 90 days and then automatically purged.,data_privacy_and_ai_usage_policy.md,Privacy,No,Easy,"According to the policy documents, support chat logs are retained on secure cloud instances for exactly **90 days** and are then automatically purged. This information is found in Document 1, Section 2.4, Q28: ""How long do you store our support chat logs?"".
+
+Escalation needed: No
+Reason: The policy clearly states the retention period for support chat logs.",faq_knowledge_base.md (score=0.8466); data_privacy_and_ai_usage_policy.md (score=0.7719); faq_knowledge_base.md (score=0.7409); vendor_risk_checklist.md (score=0.6993); data_privacy_and_ai_usage_policy.md (score=0.6935),1,no,1,5,4,5,5,0.9583,,5,4,5,5
+Q-17,An employee generated a report using the BrightPath AI Copilot and it contained errors. Who is responsible?,"The human employee who published the work is fully accountable, not the AI tool.",internal_employee_ai_use_guidelines.md,AI Governance,No,Easy,"According to the policy documents, the employee who generated the report using the BrightPath AI Copilot is personally responsible for the accuracy of the output. This is stated in Section 3.1 of Document 1, where it says: ""You are personally responsible for the accuracy of the email."" (Source: BP-POL-AIU-006, Section 3 & 6)
+
+This means that the employee must manually verify and edit the output before sending, and they are accountable for any errors or inaccuracies in the report.
+
+Escalation needed: No
+Reason: The policy clearly states that the employee is personally responsible for the accuracy of the output.",faq_knowledge_base.md (score=0.7474); data_privacy_and_ai_usage_policy.md (score=0.7451); customer_support_policy.md (score=0.7447); productivity_baseline_notes.md (score=0.7444); escalation_matrix.md (score=0.7407),0,no,1,2,4,3,4,0.5417,,2,4,3,4
+Q-18,What certifications must a high-risk software vendor provide before contract execution?,They must hold an active ISO/IEC 27001 or SOC 2 Type II certification.,vendor_risk_checklist.md,Security,No,Medium,"Based on the provided policy context, a high-risk software vendor must provide the following certifications before contract execution:
+
+- A Detailed GDPR Data Processing Agreement (DPA)
+- ISO 27001 proof or equivalent
+- Business continuity plan
+
+Additionally, the vendor must answer the mandatory due diligence questions outlined in Section 3.2 of the vendor risk checklist, including:
+
+- Security certifications (ISO/IEC 27001 or SOC 2 Type II certification)
+- Encryption standards (data encrypted both in transit and at rest)
+- Breach notification SLA (guaranteed response time to notify BrightPath in the event of a suspected or confirmed data breach)
+
+Escalation needed: No
+Reason: The policy context clearly outlines the required certifications and due diligence questions for high-risk vendors.",vendor_risk_checklist.md (score=0.745); vendor_risk_checklist.md (score=0.7171); faq_knowledge_base.md (score=0.7142); vendor_risk_checklist.md (score=0.7133); vendor_risk_checklist.md (score=0.7071),1,no,1,4,4,4,4,0.8333,,4,4,4,4
+Q-19,If our shipping carrier takes 5 days to investigate a missing package," do we refund the client immediately?,No. BrightPath cannot issue a refund while a courier investigation is pending.",delivery_and_tracking_sop.md,Logistics,No,Medium,"If our shipping carrier takes 5 days to investigate a missing package, according to Section 4.1 of Document 1 (delivery_and_tracking_sop.md), a human agent must open a formal dispute file with the courier within 5 business days of the marked delivery date. The carrier's resolution time is typically 3 to 10 business days, which matches the 5-day investigation period.
+
+Escalation needed: No
+Reason: The policy context supports the carrier's 5-day investigation period.",delivery_and_tracking_sop.md (score=0.7611); faq_knowledge_base.md (score=0.7458); delivery_and_tracking_sop.md (score=0.7161); refund_and_replacement_policy.md (score=0.716); faq_knowledge_base.md (score=0.6927),1,no,1,5,5,5,4,0.9583,,5,5,5,4
+Q-20,Can an employee use an AI tool to automate the recruitment screening of junior customer support agents?,No. HR AI screening tools are classified as high-risk under the EU AI Act and require mandatory human-in-the-loop review.,internal_employee_ai_use_guidelines.md,AI Governance,No,Medium,"Based on the retrieved policy context, it appears that using an AI tool to automate the recruitment screening of junior customer support agents is not allowed. 
+
+Document 4, Section 3. Prohibited AI Use Cases, explicitly states that ""Employees must not use AI tools to automatically evaluate, accept, or reject job applications, employee performance ratings, or candidate resumes."" This is due to the EU AI Act, which classifies recruitment tools as high-risk and requires human-in-the-loop review.
+
+Additionally, Document 2, Section 6. Accountability Statement, emphasizes that the use of AI does not relieve an employee of their professional responsibilities, and that employees are held accountable for errors or non-compliance, even if AI recommendations are used.
+
+Therefore, it is not recommended to use an AI tool to automate the recruitment screening of junior customer support agents.
+
+Escalation needed: No
+Reason: The policy explicitly prohibits the use of AI tools for automated recruitment screening.",faq_knowledge_base.md (score=0.7393); internal_employee_ai_use_guidelines.md (score=0.7221); productivity_baseline_notes.md (score=0.7136); internal_employee_ai_use_guidelines.md (score=0.7118); customer_support_policy.md (score=0.7074),1,no,1,5,4,4,4,0.875,,5,4,4,4
+Q-21,What are the support phone line operating hours and number?,"The line is +31 (0) 20 555 0199 and is open 09:00 to 17:00 CET, Monday through Friday.",customer_support_policy.md,SLA,No,Easy,"The support phone line operating hours and number are as follows:
+
+- Operating hours: Monday through Friday, 09:00 to 17:00 CET.
+- Phone number: +31 (0) 20 555 0199.
+
+Escalation needed: No
+Reason: The question is answered directly from the policy documents.",customer_support_policy.md (score=0.7106); delivery_and_tracking_sop.md (score=0.6605); customer_support_policy.md (score=0.648); customer_support_policy.md (score=0.6479); customer_complaint_handling_sop.md (score=0.6316),1,no,1,5,5,5,4,0.9583,,5,5,5,4
+Q-22,A customer is using bad language and screaming at the AI Assistant. What should the system do?,The AI must immediately escalate the interaction to a live human support agent.,customer_support_policy.md,Escalation,Yes,Easy,"Based on the retrieved policy context, when a customer is using bad language and screaming at the AI Assistant, the system should trigger a transfer to a human support agent. This is because the AI Assistant detects ""Negative Sentiment / Frustration"" (Section 5.1 of Document 1), which is one of the mandated human review and escalation triggers.
+
+The AI Assistant should immediately flag the chat history with `#AI-COMPLAINT` and duplicate it to the AI Governance Specialist (Section 4 of Document 2). Additionally, the AI Assistant should be completely deactivated for that specific customer's profile, and all future touchpoints should bypass automated chat systems and route straight to human agents.
+
+Escalation needed: Yes
+Reason: The AI Assistant detected negative sentiment and frustration, which is a mandated human review and escalation trigger.",customer_support_policy.md (score=0.7676); customer_complaint_handling_sop.md (score=0.7513); data_privacy_and_ai_usage_policy.md (score=0.7157); customer_support_policy.md (score=0.7073); internal_employee_ai_use_guidelines.md (score=0.6975),1,yes,1,4,5,4,5,0.9167,,4,5,4,5
+Q-23,What is the maximum contract length we can sign with a critical cloud ERP software vendor?,"A maximum initial term of 12 months, with reviews every 6 months, to mitigate vendor lock-in.",vendor_risk_checklist.md,Security,No,Hard,"According to the policy documents, the maximum initial term of a contract for a Critical Risk system, such as a critical cloud ERP software vendor, must be 12 months, with reviews every 6 months. This is stated in Section 4 of the vendor_risk_checklist.md document.
+
+Escalation needed: No
+Reason: The policy clearly outlines the maximum contract length for Critical Risk systems.",vendor_risk_checklist.md (score=0.7216); vendor_risk_checklist.md (score=0.684); vendor_risk_checklist.md (score=0.6515); faq_knowledge_base.md (score=0.6449); escalation_matrix.md (score=0.6441),1,no,1,5,5,4,5,0.9583,,5,5,4,5
+Q-24,How soon must a software vendor notify BrightPath in writing of a suspected security breach?,Within 24 hours of discovery.,vendor_risk_checklist.md,Security,No,Medium,"According to the policy documents, a software vendor must notify BrightPath in writing of a suspected security breach within 24 hours of discovery. This is stated in Section 3.2 of BP-CHK-VRC-007, which requires Critical and High Risk vendors to guarantee written notification of any suspected or confirmed data breach within 24 hours of discovery.
+
+Escalation needed: No
+Reason: The policy clearly states the required notification timeframe.",faq_knowledge_base.md (score=0.8212); vendor_risk_checklist.md (score=0.7797); data_privacy_and_ai_usage_policy.md (score=0.7561); vendor_risk_checklist.md (score=0.7413); delivery_and_tracking_sop.md (score=0.737),1,no,1,4,4,5,5,0.9167,,4,4,5,5
+Q-25,An order of custom stationery is delayed by 10 days. The customer wants a refund. The order value is €550. Can the supervisor approve this refund?,This is a High-Value Transaction (> €500). It requires supervisor approval AND joint sign-off from the Finance Department.,refund_and_replacement_policy.md,Refund,Yes,Hard,"Based on the retrieved policy context, the order value is €550, which exceeds the €500 threshold for a High-Value Transaction. According to Document 3 (Section 3. Internal Employee FAQs, Q37), any refund exceeding €500 requires written approval from both a Customer Support Supervisor and the Finance Department.
+
+Therefore, the supervisor cannot approve the refund without further escalation.
+
+Escalation needed: Yes
+Reason: The order value exceeds the €500 threshold for a High-Value Transaction, requiring written approval from both a Customer Support Supervisor and the Finance Department.",refund_and_replacement_policy.md (score=0.79); faq_knowledge_base.md (score=0.7714); faq_knowledge_base.md (score=0.7711); faq_knowledge_base.md (score=0.7597); faq_knowledge_base.md (score=0.7564),1,yes,1,5,5,4,4,0.9167,,5,5,4,4
+Q-26,What is the weekly average historical manual ticket volume?,The manual era baseline is 850 tickets per week.,productivity_baseline_notes.md,Operations,No,Easy,"The weekly average historical manual ticket volume is 850 tickets (all channels combined), as stated in Section 3. Average Historical Support Volumes & SLAs (Manual Era) of Document 1.
+
+Escalation needed: No
+Reason: The question is answered directly from the provided policy context.",productivity_baseline_notes.md (score=0.7288); productivity_baseline_notes.md (score=0.6981); customer_complaint_handling_sop.md (score=0.6026); productivity_baseline_notes.md (score=0.5894); customer_support_policy.md (score=0.5873),1,no,1,5,4,4,4,0.875,,5,4,4,4
+Q-27,What formal tag should be applied to a CRM ticket if a customer claims their personal data was leaked?,It must be tagged with #DATA-BREACH and routed immediately to the Data Protection Officer.,data_privacy_and_ai_usage_policy.md,Privacy,Yes,Medium,"According to Document 5, Section 3. Internal Employee FAQs, Q49: ""What is the formal tag used for a ticket when a data breach is suspected?"" The answer is: ""Suspected data breaches must be logged with the tag `#DATA-BREACH` and escalated to the Data Protection Officer immediately.""
+
+Escalation needed: No
+Reason: The policy clearly states the formal tag to be used for a suspected data breach ticket.",customer_complaint_handling_sop.md (score=0.7098); data_privacy_and_ai_usage_policy.md (score=0.6903); customer_complaint_handling_sop.md (score=0.6732); escalation_matrix.md (score=0.6525); faq_knowledge_base.md (score=0.6521),1,no,0,3,3,4,5,0.625,,3,3,4,5
+Q-28,"Can the AI assistant quote an ergonomic chair as being ""proven to cure lower back pain""?",No. AI is prohibited from making health or safety warranties beyond manufacturer specifications.,customer_support_policy.md,AI Governance,No,Medium,"The AI assistant cannot quote an ergonomic chair as being ""proven to cure lower back pain"" because it is prohibited by policy (Document 5, Section 7. Prohibited Claims and Hallucination Mitigation, point 3).
+
+Escalation needed: No
+Reason: The policy explicitly prohibits making safety warranties beyond manufacturer specs.",internal_employee_ai_use_guidelines.md (score=0.6933); customer_support_policy.md (score=0.6636); customer_support_policy.md (score=0.6632); faq_knowledge_base.md (score=0.6604); customer_support_policy.md (score=0.6566),1,no,1,4,5,5,5,0.9583,,4,5,5,5
+Q-29,What formal tag is applied if a customer complains that the AI assistant was rude to them?,It must be tagged with #AI-COMPLAINT and duplicated to the AI Governance Specialist.,customer_complaint_handling_sop.md,AI Governance,Yes,Hard,"According to the policy documents, if a customer complains that the AI assistant was rude to them, the formal tag applied is `#AI-COMPLAINT`. This is specified in Section 4 of Document 1: customer_complaint_handling_sop.md, which outlines the special rules for AI-related complaints.
+
+Escalation needed: Yes
+Reason: The AI assistant's behavior is being questioned, which requires immediate quarantine and human intervention.",customer_complaint_handling_sop.md (score=0.7618); customer_support_policy.md (score=0.7601); faq_knowledge_base.md (score=0.7523); internal_employee_ai_use_guidelines.md (score=0.7331); customer_complaint_handling_sop.md (score=0.7286),1,yes,1,5,4,4,5,0.9167,,5,4,4,5
+Q-30,What is the first step when a customer reports their office furniture order was damaged in transit?,They must report the damage within 48 hours of delivery and submit clear photos of the packaging and product.,refund_and_replacement_policy.md,Refund,No,Medium,"When a customer reports their office furniture order was damaged in transit, the first step is to report the transit damage within 48 hours of delivery. The customer must submit clear digital photographs of the outer packaging, inner packaging, and the damaged item itself via email or the customer portal.
+
+Escalation needed: No
+Reason: The policy clearly outlines the steps for reporting and resolving damaged items, which does not require human escalation.",refund_and_replacement_policy.md (score=0.7353); customer_complaint_handling_sop.md (score=0.6893); faq_knowledge_base.md (score=0.6877); delivery_and_tracking_sop.md (score=0.6818); customer_complaint_handling_sop.md (score=0.6719),1,no,1,5,4,5,5,0.9583,,5,4,5,5
+Q-31,I have a standard B2C delivery to Germany that hasn't arrived in 6 business days. Is this a delay?,No. Standard delivery to Germany takes 2 to 4 business days. It must exceed this window by 3 business days to be officially delayed.,delivery_and_tracking_sop.md,Logistics,No,Hard,"Based on the provided policy context, the standard shipping time for Germany is 2 to 4 business days. Since 6 business days have passed, this is indeed a delay.
+
+According to Section 4.2 of Document 4 (delivery_and_tracking_sop.md), a package is officially classified as ""Delayed"" if it has not arrived within 3 business days past the maximum estimated delivery window. In this case, the maximum estimated delivery window for Germany is 4 business days, and 6 business days have passed, which is more than 3 business days past the estimated delivery window.
+
+Escalation needed: No
+Reason: The policy clearly defines the delay criteria, and the customer's order has exceeded the maximum estimated delivery window.",delivery_and_tracking_sop.md (score=0.7431); faq_knowledge_base.md (score=0.7369); faq_knowledge_base.md (score=0.7279); delivery_and_tracking_sop.md (score=0.7267); faq_knowledge_base.md (score=0.7199),1,no,1,4,5,4,5,0.9167,,4,5,4,5
+Q-32,What happens to a customer's chat interface once they submit a complaint about the AI's behavior?,"The AI Assistant must be completely deactivated for that customer, routing all future contacts to human agents.",customer_complaint_handling_sop.md,AI Governance,Yes,Hard,"According to the policy documents, when a customer submits a complaint about the AI's behavior, the following actions occur:
+
+1. The chat history is immediately flagged with `#AI-COMPLAINT` and duplicated to the AI Governance Specialist.
+2. The AI Assistant is completely deactivated for that specific customer's profile, and all future touchpoints bypass automated chat systems and route straight to human agents.
+3. The AI Governance Specialist reviews the prompt log within 3 business days to determine if prompt injection occurred or if model parameters require adjustment.
+
+Additionally, the AI Assistant must trigger a transfer to a human support agent (or create a high-priority ticket if outside business hours) in the following circumstances, which may also apply to complaints about the AI's behavior:
+
+- Detection of negative sentiment or frustration
+- Third-time failure
+- High-value customer transactions (over €500.00)
+- GDPR/Privacy Inquiries
+- Ambiguous or contradictory scenarios
+
+Escalation needed: No
+Reason: The policy documents clearly outline the steps to be taken when a customer submits a complaint about the AI's behavior, and the AI Assistant is deactivated and human agents are involved in the process.",customer_complaint_handling_sop.md (score=0.8351); customer_support_policy.md (score=0.7449); faq_knowledge_base.md (score=0.7247); data_privacy_and_ai_usage_policy.md (score=0.7168); customer_complaint_handling_sop.md (score=0.7167),1,no,0,3,3,4,5,0.625,,3,3,4,5
+Q-33,What is the historical baseline error rate for manual policy application by support staff?,The baseline manual error rate is 6.8%.,productivity_baseline_notes.md,Operations,No,Easy,"The historical baseline error rate for manual policy application by support staff is 6.8% of tickets, as stated in Section 4 of Document 1: productivity_baseline_notes.md.
+
+This rate represents the percentage of tickets where the support staff incorrectly applied the policy, such as issuing refunds without warehouse verification or quoting incorrect B2B return windows.
+
+Escalation needed: No
+Reason: The question is answered directly from the provided policy context.",productivity_baseline_notes.md (score=0.7579); productivity_baseline_notes.md (score=0.6975); productivity_baseline_notes.md (score=0.6934); productivity_baseline_notes.md (score=0.6775); productivity_baseline_notes.md (score=0.6603),1,no,1,4,4,5,4,0.875,,4,4,5,4
+Q-34,"What is the threshold for a ""High-Value Transaction"" requiring dual sign-off?",Any order total value exceeding €500.00 inclusive of VAT.,refund_and_replacement_policy.md,Refund,No,Easy,"According to the policy documents, the threshold for a ""High-Value Transaction"" requiring dual sign-off is an order with a total value exceeding **€500.00 (inclusive of VAT)**.
+
+Escalation needed: No
+Reason: The policy clearly defines the threshold for High-Value Transactions, and the AI assistant is not permitted to authorize refunds or replacements for such transactions.",refund_and_replacement_policy.md (score=0.806); refund_and_replacement_policy.md (score=0.6963); refund_and_replacement_policy.md (score=0.6756); customer_complaint_handling_sop.md (score=0.6717); escalation_matrix.md (score=0.6696),1,no,1,4,5,5,4,0.9167,,4,5,5,4
+Q-35,Does BrightPath allow the storage of a customer's Burgerservicenummer (BSN) in CRM notes?,No. BrightPath does not require and must never request or store a customer's BSN.,data_privacy_and_ai_usage_policy.md,Privacy,No,Easy,"According to the policy documents, specifically Section 3.2 of the data_privacy_and_ai_usage_policy.md, the Citizen Service Number (Burgerservicenummer - BSN) is strictly prohibited from being collected, processed, or stored by BrightPath. It is explicitly stated that BrightPath does not require and must never request or store a customer's BSN.
+
+Therefore, it is not allowed to store a customer's BSN in CRM notes.
+
+Escalation needed: No
+Reason: The policy explicitly prohibits the storage of BSN.",data_privacy_and_ai_usage_policy.md (score=0.7535); faq_knowledge_base.md (score=0.7166); customer_support_policy.md (score=0.7149); vendor_risk_checklist.md (score=0.7103); data_privacy_and_ai_usage_policy.md (score=0.7088),1,no,1,4,5,5,4,0.9167,,4,5,5,4
+Q-36,"An order is marked as ""Returned to Sender"" (RTS) on the carrier portal. Can the AI assistant ask the customer for their correct address?","No. The AI must escalate to a human agent, as it is restricted from handling RTS or address changes.",delivery_and_tracking_sop.md,Logistics,Yes,Medium,"According to the policy documents, when an order is marked as ""Returned to Sender"" (RTS) on the carrier portal, the AI assistant must immediately escalate the query to a human agent (see Document 3, Section 7. Scenarios Mandating AI Assistant Escalation, point 1). This is because the AI assistant is structurally restricted from managing shipping issues autonomously and cannot verify the address without potentially making assumptions.
+
+Escalation needed: Yes
+Reason: The order status is ""Returned to Sender"" (RTS), which indicates a delivery failure due to address errors, repeated missed attempts, or damage in transit, and the AI assistant must escalate the query to a human agent.",refund_and_replacement_policy.md (score=0.7891); delivery_and_tracking_sop.md (score=0.7767); delivery_and_tracking_sop.md (score=0.77); customer_support_policy.md (score=0.7654); customer_support_policy.md (score=0.7478),1,yes,1,4,4,4,4,0.8333,,4,4,4,4
+Q-37,A B2B customer received the wrong brand of paper and complains 6 business days after delivery. What happens?,The return window for incorrect B2B shipments is 5 business days. The agent must escalate this to a supervisor.,refund_and_replacement_policy.md,Refund,Yes,Hard,"The B2B customer received the wrong brand of paper and complains 6 business days after delivery. According to the policy, the B2B return window for wrong/defective items is 5 business days. Since the customer reported the issue 6 business days after delivery, which is outside the permitted window, the AI Assistant must use defensive phrasing and not approve an automated dispatch. The customer's request should be escalated to the Customer Support Supervisor for review.
+
+Escalation needed: Yes
+Reason: The customer's return request falls outside the permitted window of 5 business days for B2B wrong/defective items.",faq_knowledge_base.md (score=0.7449); faq_knowledge_base.md (score=0.7183); refund_and_replacement_policy.md (score=0.6937); faq_knowledge_base.md (score=0.6826); delivery_and_tracking_sop.md (score=0.6803),1,yes,1,5,4,4,4,0.875,,5,4,4,4
+Q-38,What is the minimum RAGAS confidence score required for the AI assistant to output a policy answer?,"The minimum confidence score is 0.70. If lower, it must fail safe and escalate.",escalation_matrix.md,AI Governance,Yes,Hard,"The minimum RAGAS confidence score required for the AI assistant to output a policy answer is 0.70.
+
+If the AI response confidence score (RAGAS / faithfulness) is less than 0.70, the AI assistant will not output an answer and will instead route the customer to a Tier-2 Support Agent.
+
+Escalation needed: No
+Reason: The policy clearly states that the AI assistant will not output an answer if the RAGAS confidence score is less than 0.70.",escalation_matrix.md (score=0.711); customer_support_policy.md (score=0.6743); faq_knowledge_base.md (score=0.6714); productivity_baseline_notes.md (score=0.6703); faq_knowledge_base.md (score=0.6702),1,no,0,4,3,4,5,0.6667,,4,3,4,5
+Q-39,Can an employee use a public AI tool to translate a confidential draft contract for a German office supply partner?,"No. Translating confidential, non-public information using public, non-enterprise AI models is strictly prohibited.",internal_employee_ai_use_guidelines.md,Privacy,No,Hard,"Based on the provided policy context, it appears that an employee is not allowed to use a public AI tool to translate a confidential draft contract for a German office supply partner. 
+
+Section 4.2 of the data_privacy_and_ai_usage_policy.md document explicitly states that employees are prohibited from entering ""Intellectual Property"" into public or non-enterprise-controlled AI tools, which includes draft strategic business plans and confidential contracts.
+
+Additionally, Section 6 of the internal_employee_ai_use_guidelines.md document emphasizes that employees are held accountable for the accuracy of AI-generated content and that using AI does not relieve them of their professional responsibilities.
+
+Therefore, it is recommended that the employee use the internal BrightPath AI Assistant, which is a secured, enterprise-grade tool, to translate the contract. However, the employee must manually verify and edit the output before sending.
+
+Escalation needed: No
+Reason: The policy clearly prohibits using public AI tools for confidential information, and the internal BrightPath AI Assistant is a suitable alternative.",faq_knowledge_base.md (score=0.7152); data_privacy_and_ai_usage_policy.md (score=0.7028); internal_employee_ai_use_guidelines.md (score=0.6972); data_privacy_and_ai_usage_policy.md (score=0.6942); customer_support_policy.md (score=0.6917),1,no,1,5,4,4,5,0.9167,,5,4,4,5
+Q-40,A B2B client returns standard paper folders within 5 business days. Do they get a full refund?,No. They get a refund minus a 15% restocking fee calculated on the net invoice value.,refund_and_replacement_policy.md,Refund,No,Medium,"Based on the provided policy context, a B2B client returns standard paper folders within 5 business days. According to Section 2.2 of Document 2, B2B customers are granted a voluntary return window of 7 business days from delivery. Since the client returned the items within 5 business days, which is before the 7-day window, they are eligible for a refund.
+
+However, according to Section 2.2 of Document 2, all B2B returns that are not due to defect or error on BrightPath's part are subject to a 15% restocking fee, calculated based on the net invoice value of the returned products. Therefore, the client will receive a refund, but it will be subject to a 15% restocking fee.
+
+Escalation needed: No
+Reason: The policy clearly outlines the return window and restocking fee for B2B customers, and the client's return falls within the allowed timeframe.",refund_and_replacement_policy.md (score=0.7771); refund_and_replacement_policy.md (score=0.7739); faq_knowledge_base.md (score=0.772); faq_knowledge_base.md (score=0.7652); faq_knowledge_base.md (score=0.749),1,no,1,5,5,5,5,1.0,,5,5,5,5
+Q-41,If an agent wants to give a €15 goodwill voucher to a customer for a late delivery," does it require approval?,A €15 voucher is a Level 2 complaint response, which requires approval from a Customer Support Supervisor.",customer_complaint_handling_sop.md,Refund,Yes,Medium,"According to the policy documents, if an agent wants to give a €15 goodwill voucher to a customer for a late delivery, it does not match any of the specified goodwill voucher thresholds in the policy documents. The thresholds are:
+
+- €10.00 for delays exceeding 3 business days
+- €25.00 for delays exceeding 7 business days
+
+Since the €15 voucher does not match any of these thresholds, the agent cannot provide it as a goodwill gesture for a late delivery.
+
+Escalation needed: Yes
+Reason: The policy does not specify a goodwill voucher amount for a late delivery between 3 and 7 business days.",refund_and_replacement_policy.md (score=0.7512); faq_knowledge_base.md (score=0.7439); faq_knowledge_base.md (score=0.7412); customer_complaint_handling_sop.md (score=0.7254); customer_support_policy.md (score=0.6855),1,yes,1,4,4,4,4,0.8333,,4,4,4,4
+Q-42,Who is the owner of the Customer Complaint Handling SOP?,The Head of Customer Experience (CX).,customer_complaint_handling_sop.md,Operations,No,Easy,"The owner of the Customer Complaint Handling SOP is the Head of Customer Experience (CX).
+
+Escalation needed: No
+Reason: The policy documents clearly state the document owner as the Head of Customer Experience (CX).",customer_complaint_handling_sop.md (score=0.7508); customer_complaint_handling_sop.md (score=0.7063); faq_knowledge_base.md (score=0.66); delivery_and_tracking_sop.md (score=0.6575); customer_complaint_handling_sop.md (score=0.6519),1,no,1,5,4,4,4,0.875,,5,4,4,4
+Q-43,"What happens if a customer asks for ""unlimited revisions"" on a customized print design based on a policy dispute?",There is no policy offering unlimited revisions on custom work. The ticket must be flagged with #DOC-DISCREPANCY and escalated.,customer_support_policy.md,Refund,Yes,Hard,"Based on the provided policy context, if a customer asks for ""unlimited revisions"" on a customized print design based on a policy dispute, the AI Assistant must not agree to this request. According to Document 4, Section 4.2, ""Direct Order Modification: The AI cannot modify order details, delivery addresses, or items in a processing queue. Customers must be directed to a human agent.""
+
+Additionally, Document 4, Section 4.2, ""Complex Disputes: The AI must not mediate disputes regarding defective merchandise or contract pricing."" This implies that the AI Assistant should not attempt to resolve disputes related to customized print designs, including those involving policy disputes.
+
+Therefore, the AI Assistant should respond by stating its limitations and offering to route the chat to a human agent. This is in line with Document 3, Section 8, which states that the AI assistant must not guess and must state its limitations when a customer scenario does not neatly fit the written policies.
+
+Escalation needed: Yes
+Reason: The AI Assistant's scope of authority does not permit it to mediate disputes or modify order details, and the customer is requesting unlimited revisions based on a policy dispute.",faq_knowledge_base.md (score=0.6851); escalation_matrix.md (score=0.6836); customer_support_policy.md (score=0.6742); customer_support_policy.md (score=0.6687); faq_knowledge_base.md (score=0.6647),1,yes,1,4,4,4,4,0.8333,,4,4,4,4
+Q-44,What is the standard SLA resolution time for an email-based general query from a B2B Partner?,The resolution SLA for general email queries is within 24 business hours.,customer_support_policy.md,SLA,No,Hard,"According to the policy documents, the standard SLA resolution time for an email-based general query from a B2B Partner is less than 4 business hours (as per Document 1: customer_support_policy.md, Section 3. Response Time Targets (SLA)).
+
+Escalation needed: No
+Reason: The policy clearly states the target response and resolution times for B2B Partners.",customer_support_policy.md (score=0.7514); escalation_matrix.md (score=0.6787); productivity_baseline_notes.md (score=0.6601); faq_knowledge_base.md (score=0.6577); faq_knowledge_base.md (score=0.6522),1,no,1,4,4,5,4,0.875,,4,4,5,4
+Q-45,Are we allowed to use credit card numbers in chat transcripts to confirm transactions?,"No. Credit card numbers, CVVs, and banking PINs must never be recorded in chat logs or emails.",data_privacy_and_ai_usage_policy.md,Privacy,No,Medium,"According to the policy documents, we are not allowed to use credit card numbers in chat transcripts to confirm transactions. Document 1, Section 2, Q29 explicitly states that credit card numbers must never be entered in chat logs, and all payments are completed through our secure third-party provider, Mollie.
+
+Escalation needed: No
+Reason: The policy clearly prohibits the use of credit card numbers in chat logs.",faq_knowledge_base.md (score=0.7834); faq_knowledge_base.md (score=0.7019); escalation_matrix.md (score=0.7); delivery_and_tracking_sop.md (score=0.6647); data_privacy_and_ai_usage_policy.md (score=0.6565),1,no,1,4,5,5,4,0.9167,,4,5,5,4
+Q-46,A customer wants to return a €600 desk because it is damaged," but refuses to provide photographs. Can we approve a replacement?,No. Clear digital photographs of the damage are required to verify the transit damage before dispatching replacements.",refund_and_replacement_policy.md,Refund,Yes,Hard,"The customer wants to return a €600 desk because it is damaged. According to the policy, any refund exceeding €500.00 requires written approval from both a Customer Support Supervisor and the Finance Department (Document 1, Q37). Since the desk is valued at €600, which exceeds the €500.00 threshold, the AI Assistant cannot process the refund without escalation.
+
+Additionally, the policy states that if an item has been fully assembled or used excessively, BrightPath reserves the right to deduct up to 50% of the refund value due to depreciation (Document 2, Q14). However, this does not affect the need for escalation due to the high-value transaction.
+
+Escalation needed: Yes
+Reason: The transaction value exceeds the €500.00 high-value threshold, requiring written approval from both a Customer Support Supervisor and the Finance Department.",faq_knowledge_base.md (score=0.7215); faq_knowledge_base.md (score=0.7093); refund_and_replacement_policy.md (score=0.6768); refund_and_replacement_policy.md (score=0.6639); refund_and_replacement_policy.md (score=0.6608),1,yes,1,4,5,4,5,0.9167,,4,5,4,5
+Q-47,The AI assistant is asked about office supply prices for next year's corporate contracts. What should it do?,It must not guess or negotiate. It should route the request to the B2B Sales Department.,customer_support_policy.md,AI Governance,Yes,Hard,"The BrightPath AI Assistant cannot provide information on office supply prices for next year's corporate contracts as it falls outside its scope of authority. According to Section 4.1 of Document 1, the AI Assistant can only answer routine, informational queries within strict technical boundaries, and it cannot make custom policy exemptions or establish contract liabilities.
+
+The AI Assistant can only provide information on product specifications, such as dimensions, materials, and features of items in our catalog, but it cannot provide pricing information for future contracts.
+
+Escalation needed: Yes
+Reason: The query involves a scenario that does not clearly fit any single policy, specifically requesting information on future contract pricing, which is outside the AI Assistant's scope of authority.",customer_support_policy.md (score=0.7367); customer_support_policy.md (score=0.7365); customer_support_policy.md (score=0.7057); faq_knowledge_base.md (score=0.6984); customer_support_policy.md (score=0.6968),1,yes,1,5,4,4,4,0.875,,5,4,4,4
+Q-48,What data formats must a vendor support for returning BrightPath's data at the end of a contract?,"The data must be exportable in open standard formats like CSV, JSON, or XML without proprietary wrappers.",vendor_risk_checklist.md,Security,No,Medium,"According to the policy documents, a vendor must support returning BrightPath's data in open standard formats (e.g., CSV, JSON, XML) without proprietary wrappers at the end of a contract. This is stated in Section 3.4 Business Continuity & Exit Strategy of the vendor_risk_checklist.md document.
+
+Escalation needed: No
+Reason: The policy clearly specifies the required data format for returning BrightPath's data.",vendor_risk_checklist.md (score=0.7985); vendor_risk_checklist.md (score=0.7862); faq_knowledge_base.md (score=0.775); data_privacy_and_ai_usage_policy.md (score=0.7637); faq_knowledge_base.md (score=0.7519),1,no,1,5,5,5,5,1.0,,5,5,5,5
+Q-49,What was the historical average Customer Satisfaction Score (CSAT) during the manual era?,The baseline CSAT was 72.0%.,productivity_baseline_notes.md,Operations,No,Easy,"According to the policy context, the historical average Customer Satisfaction Score (CSAT) during the manual era was **72.0%**.
+
+Escalation needed: No
+Reason: The policy documents provide the required information to answer the question.",productivity_baseline_notes.md (score=0.6878); productivity_baseline_notes.md (score=0.6314); productivity_baseline_notes.md (score=0.5961); productivity_baseline_notes.md (score=0.5938); productivity_baseline_notes.md (score=0.5844),1,no,1,5,4,4,4,0.875,,5,4,4,4
+Q-50,Can a customer receive a goodwill compensation voucher if their package was delayed because they weren't home?,"No. Delays due to customer error, missed delivery attempts, or incorrect addresses are not eligible for compensation.",refund_and_replacement_policy.md,Logistics,No,Hard,"Based on the provided policy context, a customer cannot receive a goodwill compensation voucher if their package was delayed because they weren't home. According to Section 4 of BP-POL-RRP-002, exceptions to goodwill compensation include delays due to customer error, such as ""incorrect delivery address, missed delivery attempts, lack of access to office buildings.""
+
+Escalation needed: No
+Reason: The policy explicitly states that delays due to customer error are not eligible for compensation.",refund_and_replacement_policy.md (score=0.7668); faq_knowledge_base.md (score=0.7482); faq_knowledge_base.md (score=0.7231); customer_complaint_handling_sop.md (score=0.7002); delivery_and_tracking_sop.md (score=0.6676),1,no,1,5,5,4,4,0.9167,,5,5,4,4

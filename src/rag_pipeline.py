@@ -20,8 +20,9 @@ def answer_query(query: str, top_k: int = 5) -> Dict:
 
     Raises:
         RuntimeError: if the FAISS index is missing.
-        ValueError: if the query is empty or the API key is missing.
-        Exception: if the Gemini API call fails.
+        ValueError: if the query is empty, the API key is missing, or the query
+                    references a file the model cannot process.
+        Exception: if the Groq API call fails.
     """
     if not query or not query.strip():
         raise ValueError("Query cannot be empty.")
@@ -39,7 +40,7 @@ def answer_query(query: str, top_k: int = 5) -> Dict:
             "sources": [],
         }
 
-    # Step 2: Generate an answer using Gemini
+    # Step 2: Generate an answer using Groq
     answer = generate_answer(query, chunks)
 
     return {

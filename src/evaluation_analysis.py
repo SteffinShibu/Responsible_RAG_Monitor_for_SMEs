@@ -8,7 +8,9 @@ import csv
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
-from src.config import EVALUATION_RESULTS_PATH
+from src.config import EVALUATION_RESULTS_PATH, PROJECT_ROOT
+
+DEMO_RESULTS_PATH = PROJECT_ROOT / "data" / "evaluation_results_demo.csv"
 
 EXPECTED_COLUMNS = [
     "question_id",
@@ -43,8 +45,11 @@ NUMERIC_COLS = [
 
 
 def load_results(path: Optional[Path] = None) -> List[Dict]:
-    """Load evaluation results CSV. Returns empty list if file missing."""
+    """Load evaluation results CSV. Falls back to demo CSV if main file missing."""
     p = path or EVALUATION_RESULTS_PATH
+    if not p.exists():
+        # Fall back to demo CSV (shipped with repo for deployment)
+        p = DEMO_RESULTS_PATH
     if not p.exists():
         return []
     with open(p, newline="", encoding="utf-8") as f:

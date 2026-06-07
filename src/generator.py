@@ -1,8 +1,19 @@
+import re
 from typing import List, Dict
 
 from openai import OpenAI
 
 from src.config import GROQ_API_KEY, GROQ_BASE_URL, LLM_MODEL_NAME, LLM_TEMPERATURE
+
+# File extensions the model cannot handle — detect them in user queries
+IMAGE_FILE_PATTERN = re.compile(
+    r'(?:^|\s)(?:[^\s]+)?\.(?:png|jpg|jpeg|gif|bmp|webp|svg|ico|tiff?)(?:\s|$|\.)',
+    re.IGNORECASE,
+)
+OTHER_FILE_PATTERN = re.compile(
+    r'(?:^|\s)(?:[^\s]+)?\.(?:pdf|docx?|xlsx?|pptx?|zip|tar|gz|mp[34]|avi|mov)(?:\s|$|\.)',
+    re.IGNORECASE,
+)
 
 
 SYSTEM_PROMPT = """
@@ -49,6 +60,26 @@ def _is_placeholder_key(key: str) -> bool:
     """Check whether the API key value looks like an unedited placeholder."""
     lower = key.lower()
     return any(marker in lower for marker in PLACEHOLDER_MARKERS)
+
+
+def _check_for_file_references(query: str) -> str:
+    """Check if the query references an image or other file the model cannot process.
+
+    Returns an empty string if the query is safe, or an error message if it looks
+    like a file reference.
+    """
+    if IMAGE_FILE_PATTERN.search(query):
+        return (
+            "This assistant only supports text questions. "
+            "Please ask your question without referencing image files "
+            "(PNG, JPG, GIF, etc.)."
+        )
+    if OTHER_FILE_PATTERN.search(query):
+        return (
+            "This assistant only supports text questions. "
+            "Please ask your question without referencing document or media files."
+        )
+    return ""
 
 
 def build_groq_client() -> OpenAI:
@@ -105,9 +136,17 @@ def generate_answer(query: str, chunks: List[Dict]) -> str:
         The generated answer text.
 
     Raises:
-        ValueError: if API key is missing or invalid.
-        Exception: if the Groq API call fails.
+        ValueError: if API key is missing or invalid, or if the query
+                    references a file the model cannot process.
+        RuntimeError: if the Groq API call fails due to an unsupported
+                      input type (e.g., image reference).
+        Exception: if the Groq API call fails for other reasons.
     """
+    # Input validation: reject file references early
+    file_error = _check_for_file_references(query)
+    if file_error:
+        raise ValueError(file_error)
+
     client = build_groq_client()
 
     context = format_context(chunks)
@@ -118,13 +157,23 @@ def generate_answer(query: str, chunks: List[Dict]) -> str:
         f"Please answer the question using only the context above."
     )
 
-    response = client.chat.completions.create(
-        model=LLM_MODEL_NAME,
-        messages=[
-            {"role": "system", "content": SYSTEM_PROMPT},
-            {"role": "user", "content": user_prompt},
-        ],
-        temperature=LLM_TEMPERATURE,
-        max_tokens=1024,
-    )
+    try:
+        response = client.chat.completions.create(
+            model=LLM_MODEL_NAME,
+            messages=[
+                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "user", "content": user_prompt},
+            ],
+            temperature=LLM_TEMPERATURE,
+            max_tokens=1024,
+        )
+    except Exception as e:
+        error_str = str(e).lower()
+        if "image" in error_str or "does not support" in error_str:
+            raise RuntimeError(
+                "The AI model does not support image or file input. "
+                "Please ask a text-only question about BrightPath policies."
+            ) from e
+        raise
+
     return response.choices[0].message.content

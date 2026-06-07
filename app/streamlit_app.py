@@ -30,6 +30,8 @@ from src.config import (
     GROQ_API_KEY,
     FAISS_INDEX_PATH,
     EVALUATION_RESULTS_PATH,
+    EVALUATOR_PROVIDER,
+    EVALUATOR_MODEL_NAME,
 )
 from src.generator import _is_placeholder_key
 from src.evaluation_analysis import (
@@ -83,10 +85,25 @@ def check_prerequisites() -> list:
 with st.sidebar:
     st.markdown("### System Info")
     st.markdown(f"**LLM provider:** Groq")
-    st.markdown(f"**Model:** `{LLM_MODEL_NAME}`")
+    st.markdown(f"**Generator model:** `{LLM_MODEL_NAME}`")
     st.markdown(f"**Embedding model:** `{EMBEDDING_MODEL_NAME}`")
     st.markdown(f"**Vector store:** FAISS (IndexFlatIP)")
     st.markdown(f"**Retrieval top-k:** {RETRIEVAL_TOP_K}")
+
+    st.divider()
+
+    st.markdown("### Evaluator Info")
+    st.markdown(f"**Provider:** `{EVALUATOR_PROVIDER}`")
+    st.markdown(f"**Judge model:** `{EVALUATOR_MODEL_NAME}`")
+    st.markdown("**Metrics:**")
+    st.markdown("- Rule-based: `source_match`, `escalation_correct`")
+    st.markdown("- LLM-as-judge (1-5): answer relevance, groundedness, completeness, unsupported claim risk")
+    st.markdown("- Composite: `overall_quality_score` (0-1)")
+
+    st.caption(
+        "The evaluator uses a separate model from the generator "
+        "to avoid self-evaluation bias."
+    )
 
     st.divider()
 

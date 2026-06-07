@@ -1,0 +1,9 @@
+use_case_id,use_case_name,department,ai_role,risk_level,human_oversight,notes
+UC001,Customer policy Q&A,Support,Assistant,Low,Review escalated cases,"Answers from retrieved policy documents only"
+UC002,Return window inquiry,Support,Assistant,Low,None,"Standard policy lookup — low risk"
+UC003,Refund processing,Support,Assistant with escalation,Medium,Mandatory review >€500,"AI cannot authorise high-value refunds"
+UC004,Legal threat response,Support,Screen and escalate,High,Mandatory human handling,"AI must not respond — escalate immediately"
+UC005,Privacy data handling,Support,Screen and escalate,High,Mandatory human handling,"AI must not process or store PII"
+UC006,Complaint handling,Support,Assistant with escalation,Medium,Review escalated cases,"Standard complaints via SOP; complex cases escalated"
+UC007,SLA tracking,Support,Assistant,Low,None,"AI answers from SLA documentation only"
+UC008,AI use policy Q&A,Internal,Assistant,Medium,Review,"Internal employees asking about AI tool usage"

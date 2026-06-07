@@ -1,0 +1,4 @@
+incident_id,date,time,description,severity,detected_by,affected_component,root_cause,action_taken,status,notes
+INC001,2026-06-01,14:30,Assistant recommended refund for high-value order without escalation,High,Evaluation,Generator,Model failed to detect high-value threshold in system prompt,Updated system prompt with explicit high-value rule,Resolved,"See Q-04 in evaluation results"
+INC002,2026-06-02,09:15,Retriever returned zero relevant chunks for a B2B return question,Medium,Evaluation,Retriever,Chunking split the B2B policy across multiple chunks with poor overlap,Adjusted overlap from 10 to 20 tokens,Resolved,"See Q-12 in evaluation results"
+INC003,2026-06-05,11:00,SPC Rule 2 triggered: 9 consecutive questions above mean quality,Low,SPC Monitor,Evaluation,All easy questions were clustered in the evaluation sequence,No action needed — evaluation sequence should be randomised,Monitoring,"Evaluation order was sorted by difficulty"

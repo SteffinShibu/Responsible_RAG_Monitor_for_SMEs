@@ -1,0 +1,16 @@
+scenario_id,scenario,manual_resolution_time_min,ai_assisted_resolution_time_min,manual_error_flag,ai_assisted_error_flag,escalation_needed,human_review_time_min,final_resolution_time_min
+S001,Standard delivery inquiry,12,4,0,0,No,0,4
+S002,B2B return window question,18,6,1,0,No,0,6
+S003,High-value refund request (>€500),45,12,1,0,Yes,15,27
+S004,Legal threat from customer,30,8,0,0,Yes,20,28
+S005,Privacy data deletion request,25,7,1,0,Yes,15,22
+S006,Ambiguous policy question,20,5,1,1,Yes,10,15
+S007,Standard complaint logging,15,4,0,0,No,0,4
+S008,SLA resolution time inquiry,10,3,0,0,No,0,3
+S009,AI tool usage policy question,14,5,0,0,No,0,5
+S010,Multi-document policy conflict,35,10,1,0,Yes,20,30
+S011,Discount request without approval,22,6,1,0,Yes,10,16
+S012,Product return with damage photos,28,8,1,1,No,5,13
+S013,B2B contract renewal question,40,12,0,0,Yes,15,27
+S014,Customer complaint about AI,20,6,1,0,Yes,15,21
+S015,Standard delivery tracking,8,3,0,0,No,0,3

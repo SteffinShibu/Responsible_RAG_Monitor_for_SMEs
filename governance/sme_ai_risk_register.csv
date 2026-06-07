@@ -1,0 +1,9 @@
+risk_id,risk_category,risk_description,likelihood,impact,mitigation,owner
+R001,Retrieval,Retriever fails to find the correct policy document,Medium,High,Improve chunking; upgrade embedding model; expand golden dataset,AI Engineer
+R002,Generation,LLM hallucinates information not in retrieved context,Low,High,Strict system prompt; groundedness scoring; human review of escalated cases,AI Engineer
+R003,Generation,LLM incorrectly decides escalation not needed,Medium,High,Review escalation rubric; add examples; monitor escalation accuracy,Compliance
+R004,Evaluation,LLM-as-judge gives inaccurate scores,Medium,Medium,Compare against human evaluation; use multiple judge models,Researcher
+R005,Privacy,User accidentally pastes customer PII into assistant,Medium,High,Add input sanitisation; warn users; do not store queries,Compliance
+R006,Deployment,Synthetic data does not represent real SME queries,High,Medium,Validate against real SME data before production; expand dataset,Researcher
+R007,Monitoring,SPC flags are ignored or misinterpreted,Medium,Medium,Train users on SPC interpretation; automate alerts for critical flags,Compliance
+R008,Technical,FAISS index becomes stale after document updates,Medium,Low,Re-index on document changes; document rebuild procedure,AI Engineer
