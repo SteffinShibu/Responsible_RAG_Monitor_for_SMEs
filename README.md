@@ -40,7 +40,7 @@ responsible-rag-monitor-smes/
 │   ├── retriever.py                  # Top-k retrieval with relevance scores
 │   ├── generator.py                  # Groq API wrapper with escalation system prompt
 │   ├── rag_pipeline.py               # Combines retriever + generator
-│   ├── evaluator.py                  # LLM-as-judge (Gemini, Groq, or Mistral) + rule-based metrics
+│   ├── evaluator.py                  # LLM-as-judge (Mistral, Groq, or Gemini) + rule-based metrics
 │   ├── evaluation_analysis.py        # Load, deduplicate, summarise evaluation results
 │   ├── spc_monitor.py                # Shewhart SPC charts + Nelson rules
 │   └── productivity_analysis.py      # Lightweight productivity comparison
@@ -101,7 +101,7 @@ User Query
           ▼
 ┌─────────────────────┐      ┌──────────────────────┐
 │   RAG Assistant     │      │  Evaluator            │
-│   (user-facing demo)│─────▶│  (Mistral/Gemini LLM  │
+│   (user-facing demo)│─────▶│  (Mistral LLM-as-judge│
 │                     │      │   as judge)           │
 └─────────────────────┘      └──────────┬───────────┘
                                         │ scores + flags
@@ -123,7 +123,7 @@ The evaluator model is used as a secondary review layer to assess answer quality
 - Python 3.10+
 - Groq API key (free at [console.groq.com](https://console.groq.com))
 - Mistral AI API key (free at [console.mistral.ai](https://console.mistral.ai)) — for LLM-as-judge
-  Or Gemini API key (free at [aistudio.google.com](https://aistudio.google.com/apikey))
+  Or Gemini API key (free at [aistudio.google.com](https://aistudio.google.com/apikey)) — optional alternative
 
 ### 2. Setup
 
