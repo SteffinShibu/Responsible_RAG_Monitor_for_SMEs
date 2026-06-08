@@ -37,12 +37,12 @@ LLM_MODEL_NAME = os.getenv("LLM_MODEL_NAME", "llama-3.1-8b-instant")
 LLM_TEMPERATURE = 0.1
 
 # LLM settings — Evaluator (separate from generator)
-# Can be: gemini (uses GEMINI_API_KEY), groq (uses GROQ_API_KEY), mistral (uses MISTRAL_API_KEY)
+# Can be: mistral (uses MISTRAL_API_KEY), groq (uses GROQ_API_KEY), gemini (uses GEMINI_API_KEY)
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 MISTRAL_API_KEY = os.getenv("MISTRAL_API_KEY", "")
 MISTRAL_BASE_URL = "https://api.mistral.ai/v1"
-EVALUATOR_PROVIDER = os.getenv("EVALUATOR_PROVIDER", "gemini")
-EVALUATOR_MODEL_NAME = os.getenv("EVALUATOR_MODEL_NAME", "gemini-1.5-flash-8b")
+EVALUATOR_PROVIDER = os.getenv("EVALUATOR_PROVIDER", "mistral")
+EVALUATOR_MODEL_NAME = os.getenv("EVALUATOR_MODEL_NAME", "ministral-8b-2512")
 
 # Evaluation results path
 EVALUATION_RESULTS_PATH = PROJECT_ROOT / "data" / "evaluation_results.csv"

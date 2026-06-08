@@ -133,7 +133,7 @@ def build_evaluator_client():
         return OpenAI(api_key=MISTRAL_API_KEY, base_url=MISTRAL_BASE_URL)
 
     else:
-        raise ValueError(f"Unknown EVALUATOR_PROVIDER: {EVALUATOR_PROVIDER}. Use 'gemini' or 'groq'.")
+        raise ValueError(f"Unknown EVALUATOR_PROVIDER: {EVALUATOR_PROVIDER}. Use 'mistral', 'groq', or 'gemini'.")
 
 
 def judge_answer(

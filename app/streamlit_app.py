@@ -162,12 +162,12 @@ with tab_ask:
     st.title("Responsible RAG Monitor for SMEs")
 
     st.info(
-        "**Prototype status:** Phase 4 complete  "
-        "· **Module:** User-facing RAG assistant  "
-        "· **Capabilities:** RAG retrieval, grounded answer generation, "
-        "source citation, escalation recommendation  "
-        "· **Next phases:** Statistical process monitoring, "
-        "productivity simulation, governance dashboard"
+        "**Prototype status:** V1 evaluation and monitoring prototype complete  "
+        "· **Current capabilities:** RAG retrieval, grounded answer generation, "
+        "source citation, escalation recommendation, LLM-as-judge evaluation, "
+        "evaluation dashboard, SPC monitoring  "
+        "· **Next phases:** productivity simulation, governance dashboard, "
+        "live monitoring from user-query logs"
     )
 
     st.markdown(
@@ -179,9 +179,9 @@ with tab_ask:
 
     st.markdown(
         "**Why this matters.** This prototype uses a RAG assistant as a test system for "
-        "evaluating responsible AI adoption in SMEs. Later phases will assess answer "
-        "faithfulness, relevance, context quality, escalation behaviour, and performance "
-        "drift over time."
+        "evaluating responsible AI adoption in SMEs. The evaluation dashboard assesses "
+        "answer relevance, groundedness, completeness, escalation behaviour, and quality "
+        "stability using LLM-as-judge scoring and statistical process monitoring."
     )
 
     prereq_errors = check_prerequisites()
@@ -292,6 +292,11 @@ with tab_ask:
 # =====================================================================
 with tab_eval:
     st.title("Evaluation Dashboard")
+
+    st.caption(
+        "This dashboard visualises batch evaluation results from a 50-question "
+        "golden dataset. It does not call the APIs live; it reads saved evaluator results."
+    )
 
     # ── Load data ────────────────────────────────────────────────
     raw_rows = load_results()
@@ -588,7 +593,7 @@ with tab_eval:
     st.divider()
 
     # ── SPC Monitoring Section ───────────────────────────────────
-    st.subheader("Statistical Process Monitoring (SPC)")
+    st.subheader("Statistical Process Monitoring (SPC) over RAG Evaluation Scores")
 
     st.info(
         "These charts treat benchmark question order as a monitoring sequence. "
@@ -708,7 +713,7 @@ with tab_eval:
 - **LLM-as-judge scores** are model-based evaluation proxies, not ground truth.  
   They provide directional quality signals but should be validated against human judgment.
 - **SPC flags** are monitoring signals that indicate unusual patterns.  
-  They should trigger human review, not automatic conclusions.
+  Nelson Rule flags are not automatic failure labels — they indicate cases that should be reviewed by a human evaluator.
 - **Low-quality cases** (score < 0.4) are candidates for manual review and system improvement.
 """)
 

@@ -112,7 +112,7 @@ User Query
                                └──────────────────────┘
 ```
 
-The evaluator model is used as a secondary review layer to assess answer quality, safety, and escalation behaviour. It is not treated as ground truth; its outputs are compared against a small golden dataset and monitored over time.
+The evaluator model is separate from the generator model to reduce self-evaluation bias. The evaluator (Mistral `ministral-8b-2512`) acts as a secondary review layer to assess answer quality, safety, and escalation behaviour. It is not treated as ground truth; its outputs are compared against a small golden dataset and monitored over time.
 
 ---
 
@@ -123,7 +123,7 @@ The evaluator model is used as a secondary review layer to assess answer quality
 - Python 3.10+
 - Groq API key (free at [console.groq.com](https://console.groq.com))
 - Mistral AI API key (free at [console.mistral.ai](https://console.mistral.ai)) — for LLM-as-judge
-  Or Gemini API key (free at [aistudio.google.com](https://aistudio.google.com/apikey)) — optional alternative
+- Gemini API key (free at [aistudio.google.com](https://aistudio.google.com/apikey)) — optional alternative to Mistral
 
 ### 2. Setup
 
@@ -226,7 +226,7 @@ The dashboard plots `overall_quality_score` as a run chart over the evaluation s
 | Rule 2 | Nine consecutive points on the same side of the mean |
 | Rule 3 | Six consecutive points steadily increasing or decreasing |
 
-**Note:** In V1, question order from the evaluation sequence is used as a proxy for time. In production, SPC would run over timestamped real user queries.
+**Note:** SPC is implemented in V1 using question order as a proxy sequence for monitoring. In production, SPC would run over timestamped real user queries.
 
 ---
 
@@ -269,8 +269,10 @@ Synthetic productivity data (`data/synthetic_productivity_data.csv`) compares ma
 4. Add these secrets in Streamlit Cloud dashboard → Settings → Secrets:
 
 ```toml
-GROQ_API_KEY = "your_groq_api_key"
-MISTRAL_API_KEY = "your_mistral_api_key"
+GROQ_API_KEY = "your_groq_api_key_here"
+LLM_PROVIDER = "groq"
+LLM_MODEL_NAME = "llama-3.1-8b-instant"
+MISTRAL_API_KEY = "your_mistral_api_key_here"
 EVALUATOR_PROVIDER = "mistral"
 EVALUATOR_MODEL_NAME = "ministral-8b-2512"
 ```
