@@ -29,11 +29,17 @@ from src.config import (
     RETRIEVAL_TOP_K,
     GROQ_API_KEY,
     FAISS_INDEX_PATH,
+    RAW_DOCUMENTS_DIR,
+    VECTORSTORE_DIR,
     EVALUATION_RESULTS_PATH,
     EVALUATOR_PROVIDER,
     EVALUATOR_MODEL_NAME,
 )
 from src.generator import _is_placeholder_key
+from src.document_loader import load_markdown_documents
+from src.chunker import chunk_documents
+from src.embeddings import embed_texts
+from src.vector_store import build_faiss_index
 from src.evaluation_analysis import (
     load_results,
     deduplicate_rows,
@@ -73,12 +79,25 @@ def check_prerequisites() -> list:
             "`PASTE_YOUR_GROQ_API_KEY_HERE` with your actual key "
             "(get one free at https://console.groq.com)."
         )
-    if not FAISS_INDEX_PATH.exists():
-        errors.append(
-            "FAISS index not found. "
-            "Run `python scripts/build_index.py` from the project root first."
-        )
     return errors
+
+
+def ensure_index_built():
+    if FAISS_INDEX_PATH.exists():
+        return
+    with st.spinner("Building FAISS index for the first time..."):
+        VECTORSTORE_DIR.mkdir(parents=True, exist_ok=True)
+        documents = load_markdown_documents()
+        if not documents:
+            st.error(f"No documents found in {RAW_DOCUMENTS_DIR}")
+            st.stop()
+        chunks = chunk_documents(documents)
+        if not chunks:
+            st.error("No chunks created from documents.")
+            st.stop()
+        texts = [chunk["text"] for chunk in chunks]
+        embeddings = embed_texts(texts)
+        build_faiss_index(embeddings, chunks)
 
 
 # ── Sidebar ────────────────────────────────────────────────────
@@ -170,6 +189,8 @@ with tab_ask:
         for err in prereq_errors:
             st.error(err)
         st.stop()
+
+    ensure_index_built()
 
     query = st.text_input(
         "Ask a question about BrightPath policies:",

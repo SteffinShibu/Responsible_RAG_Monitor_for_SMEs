@@ -3,10 +3,9 @@ __pycache__/
 *.pyc
 .DS_Store
 venv/
-# FAISS index is committed for Streamlit Cloud deployment
-# vectorstore/faiss_index/*.faiss
-# vectorstore/faiss_index/*.json
-# vectorstore/faiss_index/*.pkl
+vectorstore/faiss_index/*.faiss
+vectorstore/faiss_index/*.json
+vectorstore/faiss_index/*.pkl
 data/evaluation_results.csv
 # Allow demo results to be committed for deployment
 !data/evaluation_results_demo.csv
