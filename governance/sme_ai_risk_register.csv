@@ -1,9 +1,11 @@
-risk_id,risk_category,risk_description,likelihood,impact,mitigation,owner
-R001,Retrieval,Retriever fails to find the correct policy document,Medium,High,Improve chunking; upgrade embedding model; expand golden dataset,AI Engineer
-R002,Generation,LLM hallucinates information not in retrieved context,Low,High,Strict system prompt; groundedness scoring; human review of escalated cases,AI Engineer
-R003,Generation,LLM incorrectly decides escalation not needed,Medium,High,Review escalation rubric; add examples; monitor escalation accuracy,Compliance
-R004,Evaluation,LLM-as-judge gives inaccurate scores,Medium,Medium,Compare against human evaluation; use multiple judge models,Researcher
-R005,Privacy,User accidentally pastes customer PII into assistant,Medium,High,Add input sanitisation; warn users; do not store queries,Compliance
-R006,Deployment,Synthetic data does not represent real SME queries,High,Medium,Validate against real SME data before production; expand dataset,Researcher
-R007,Monitoring,SPC flags are ignored or misinterpreted,Medium,Medium,Train users on SPC interpretation; automate alerts for critical flags,Compliance
-R008,Technical,FAISS index becomes stale after document updates,Medium,Low,Re-index on document changes; document rebuild procedure,AI Engineer
+risk_id,risk_description,likelihood,impact,risk_level,mitigation,monitoring_signal
+R001,Hallucinated policy answer from LLM,Low,High,Critical,Strict system prompt requiring groundedness; groundedness scoring in evaluation; human review of escalated cases,groundedness_score < 3 or evaluator_notes containing "hallucination"
+R002,Incorrect refund or compensation approval,Medium,High,High,Escalation rubric for high-value transactions (>500); mandatory supervisor sign-off; escalation_correct metric,escalation_correct = 0 for refund-related questions
+R003,Missed escalation when human review was required,Medium,High,High,Review escalation rubric regularly; monitor escalation accuracy across risk categories; add examples to system prompt,escalation_correct = 0 or escalation_accuracy below 80%
+R004,Privacy leakage via user-pasted PII in queries,Medium,High,High,Input sanitisation warnings; do not store raw queries; privacy notice in UI; no real PII in synthetic data,evaluator_notes containing "PII" or "privacy"
+R005,Sensitive personal data exposure through answers,Low,High,High,Retrieved context filtering; no real PII in knowledge base; privacy impact assessment required before production,source_match involving sensitive document categories
+R006,Stale or outdated document retrieval after policy updates,Medium,Medium,Medium,Re-index FAISS on document changes; document rebuild procedure documented; version tracking for source files,overall_quality_score declining for specific document categories
+R007,Vendor or API dependency failure (Groq or Mistral outage),Medium,Medium,Medium,Document fallback options for each provider; cache evaluation results; monitor API status; developer alerts on failure,evaluator_notes containing "API error" or generator_errors
+R008,Evaluator model bias in scoring,Medium,Medium,Medium,Compare LLM-as-judge against human evaluation on subset; periodically rotate judge model; document systematic biases,evaluator_notes patterns correlating with specific risk categories
+R009,Overreliance by SME staff on AI answers,High,Medium,High,User training on AI limitations; clear disclaimers in UI; escalation culture; human-in-the-loop for flagged cases,low_quality_count trend or SPC flags ignored rate
+R010,Weak audit trail for AI-assisted decisions,Medium,High,High,Timestamp all queries and evaluations; maintain incident log; log all escalation decisions; periodic audit of decision records,missing evaluator_notes or incomplete incident log entries

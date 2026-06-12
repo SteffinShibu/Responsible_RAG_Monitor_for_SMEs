@@ -28,7 +28,7 @@ Small and medium-sized enterprises (SMEs) increasingly adopt AI assistants for c
 responsible-rag-monitor-smes/
 │
 ├── app/
-│   └── streamlit_app.py              # Streamlit app (Ask Assistant + Evaluation Dashboard)
+│   └── streamlit_app.py              # Streamlit app (3 tabs: Ask Assistant, Evaluation Dashboard, Governance Report)
 │
 ├── src/
 │   ├── config.py                     # Paths, model names, API keys, constants
@@ -170,7 +170,7 @@ python scripts/run_evaluation.py --sleep 15
 
 ## Streamlit Dashboard
 
-The app has two tabs:
+The app has three tabs:
 
 ### Ask the SME Assistant
 
@@ -191,6 +191,20 @@ Visualises results from the evaluation module. Shows:
 - **Detail tables**: low-quality cases, failed escalation, failed source match
 - **CSV download**: export deduplicated evaluation results
 - **SPC chart**: Shewhart control chart with Nelson rule flags
+
+### Governance Report
+
+Summarises the responsible AI governance layer directly in the app. Displays:
+- **System summary**: stack, intended users, limitations, out-of-scope uses
+- **Model/system card**: purpose, components, human oversight, known biases
+- **Risk register**: 10 identified AI risks with likelihood, impact, level, mitigation, and monitoring signals
+- **Escalation checklist**: triggers and procedures for human review
+- **AI use-case taxonomy**: 8 SME AI use cases with risk levels and oversight requirements
+- **Deployment readiness**: pre-deployment, deployment, and production checklists
+- **Evaluation report summary**: key metrics from the 50-question benchmark
+- **Download pack**: one-click download of all 8 governance artefacts
+
+The Governance Report tab does not require API calls or a running evaluation — it reads committed governance files and works fully on Streamlit Cloud.
 
 ---
 

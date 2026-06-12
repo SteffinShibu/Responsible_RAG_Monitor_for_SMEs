@@ -152,7 +152,7 @@ with st.sidebar:
 
 
 # ── Tabs ───────────────────────────────────────────────────────
-tab_ask, tab_eval = st.tabs(["Ask the SME Assistant", "Evaluation Dashboard"])
+tab_ask, tab_eval, tab_gov = st.tabs(["Ask the SME Assistant", "Evaluation Dashboard", "Governance Report"])
 
 
 # =====================================================================
@@ -722,4 +722,226 @@ with tab_eval:
         "Question order is used as a proxy sequence for SPC. "
         "In production, monitoring would run over time-stamped real user queries. "
         "LLM-as-judge is not ground truth — scores are directional."
+    )
+
+
+# =====================================================================
+# TAB 3: Governance Report
+# =====================================================================
+with tab_gov:
+    st.title("Governance Report")
+
+    st.markdown(
+        "This governance report summarises how the Responsible RAG Monitor for SMEs "
+        "supports responsible AI adoption through system documentation, evaluation, "
+        "escalation rules, risk tracking, and deployment readiness checks. "
+        "The RAG assistant is the test system; the evaluation dashboard assesses answer "
+        "quality and stability; this report translates evaluation results into responsible "
+        "AI adoption artefacts."
+    )
+
+    st.info(
+        "**V1 portfolio prototype** — Uses synthetic data. Not a production legal, "
+        "financial, HR, or compliance system."
+    )
+
+    st.divider()
+
+    # ── A. Governance Overview ────────────────────────────────────
+    st.subheader("A. Governance Overview")
+
+    st.markdown(
+        "This project demonstrates a governance layer around a RAG-based SME customer support "
+        "assistant. The governance artefacts below document the system's intended use, "
+        "identified risks, escalation procedures, deployment readiness, and evaluation results. "
+        "Together they form a responsible AI framework that SMEs can adapt to their own context."
+    )
+
+    st.divider()
+
+    # ── B. System Summary ─────────────────────────────────────────
+    st.subheader("B. System Summary")
+
+    system_summary = [
+        ("System name", "Responsible RAG Monitor for SMEs"),
+        ("Use case", "SME policy-question answering and responsible AI evaluation"),
+        ("Example company", "BrightPath Office Supplies"),
+        ("Document type", "Synthetic SME policy documents (.md files)"),
+        ("RAG stack", "BGE embeddings (bge-small-en-v1.5) + FAISS (IndexFlatIP) + Groq (llama-3.1-8b-instant)"),
+        ("Evaluator", "Separate LLM-as-judge model (Mistral ministral-8b-2512 via Mistral AI API)"),
+        ("Evaluation dataset", "50 golden questions with expected answers and escalation labels"),
+        ("Monitoring", "Shewhart control chart (3-sigma limits) + Nelson Rules 1, 2, 3"),
+        ("Intended users", "SME managers, support leads, AI adoption teams, researchers"),
+        ("Not intended for", "Real legal, financial, HR, or compliance decisions without human review"),
+    ]
+    for label, value in system_summary:
+        st.markdown(f"- **{label}:** {value}")
+
+    st.divider()
+
+    # ── C. Model/System Card Summary ──────────────────────────────
+    st.subheader("C. Model/System Card Summary")
+
+    gov_dir = project_root / "governance"
+
+    st.markdown("**Purpose** — A retrieval-augmented generation system that answers customer support questions using SME internal policy documents, with a built-in responsible AI evaluation and monitoring layer.")
+    st.markdown("**Intended users** — SME customer support agents, compliance officers, AI adoption researchers.")
+    st.markdown("**Data sources** — 10 synthetic Markdown policy documents for BrightPath Office Supplies; 50 synthetic test questions with expected answers and escalation labels.")
+    st.markdown("**Key components** — BGE embedding model, FAISS vector store, Groq answer generator, Mistral LLM-as-judge evaluator.")
+    st.markdown("**Human oversight** — All escalated questions flagged for review; low-quality answers (< 0.4) flagged for audit; SPC flags trigger review only (not automatic actions).")
+    st.markdown("**Known limitations** — Synthetic data only; LLM-as-judge is a proxy not ground truth; static 50-question benchmark; no multi-turn conversation; single embedding model (384-dim).")
+    st.markdown("**Out-of-scope** — Real customer support without human oversight; legal, financial, or HR decision-making; processing of real PII; automated refund or compensation approvals.")
+
+    system_card_path = gov_dir / "system_card.md"
+    model_card_path = gov_dir / "model_card.md"
+
+    if system_card_path.exists():
+        with st.expander("View full system card"):
+            st.markdown(system_card_path.read_text())
+    if model_card_path.exists():
+        with st.expander("View full model card"):
+            st.markdown(model_card_path.read_text())
+
+    st.divider()
+
+    # ── D. Risk Register Summary ──────────────────────────────────
+    st.subheader("D. Risk Register Summary")
+
+    risk_path = gov_dir / "sme_ai_risk_register.csv"
+    if risk_path.exists():
+        with open(risk_path, "r") as f:
+            reader = csv.DictReader(f)
+            risk_rows = list(reader)
+        if risk_rows:
+            st.dataframe(risk_rows, use_container_width=True, hide_index=True)
+        else:
+            st.info("Risk register is empty.")
+    else:
+        st.info("Risk register file not found. Run evaluation to generate it.")
+
+    st.divider()
+
+    # ── E. Human Escalation Checklist ─────────────────────────────
+    st.subheader("E. Human Escalation Checklist")
+
+    checklist_path = gov_dir / "human_escalation_checklist.md"
+    if checklist_path.exists():
+        st.markdown(checklist_path.read_text())
+    else:
+        st.markdown("**Escalation triggers for human review:**")
+        triggers = [
+            "Refunds or transactions above threshold (e.g. >500)",
+            "Legal threats or lawsuit mentions",
+            "Privacy-sensitive data or GDPR complaints",
+            "Medical or sensitive personal data",
+            "Unclear or ambiguous policy queries",
+            "High-value financial decisions",
+            "Severe customer complaints",
+            "Insufficient retrieved context for a confident answer",
+            "Repeated failed answers on the same topic",
+            "Low-quality evaluation score (< 0.4)",
+            "Nelson Rule or SPC flag triggered",
+        ]
+        for t in triggers:
+            st.markdown(f"- {t}")
+
+    st.divider()
+
+    # ── F. SME AI Use-Case Taxonomy ───────────────────────────────
+    st.subheader("F. SME AI Use-Case Taxonomy")
+
+    taxonomy_path = gov_dir / "ai_use_case_taxonomy.csv"
+    if taxonomy_path.exists():
+        with open(taxonomy_path, "r") as f:
+            reader = csv.DictReader(f)
+            taxonomy_rows = list(reader)
+        if taxonomy_rows:
+            st.dataframe(taxonomy_rows, use_container_width=True, hide_index=True)
+        else:
+            st.info("Taxonomy file is empty.")
+    else:
+        st.info("AI use-case taxonomy file not found.")
+
+    st.divider()
+
+    # ── G. Deployment Readiness Checklist ─────────────────────────
+    st.subheader("G. Deployment Readiness Checklist")
+
+    deploy_path = gov_dir / "deployment_readiness_checklist.md"
+    if deploy_path.exists():
+        st.markdown(deploy_path.read_text())
+    else:
+        st.info("Deployment readiness checklist not found.")
+
+    st.divider()
+
+    # ── H. RAG Evaluation Report Summary ──────────────────────────
+    st.subheader("H. RAG Evaluation Report Summary")
+
+    eval_report_path = gov_dir / "rag_evaluation_report.md"
+    if eval_report_path.exists():
+        st.markdown(eval_report_path.read_text())
+    else:
+        st.markdown("**Evaluation dataset:** 50 synthetic questions (Q-01 to Q-50)")
+        st.markdown("**Metrics source match, escalation accuracy, answer relevance, groundedness, completeness, unsupported claim risk, overall quality (0-1)**")
+        st.markdown("**SPC monitoring:** Shewhart control chart + Nelson Rules 1, 2, 3 over question evaluation sequence")
+        st.markdown("**Limitations:** Synthetic data; LLM-as-judge is a proxy not ground truth; static benchmark; 50-question dataset may not generalise")
+
+    st.markdown(
+        "*The evaluator model is used as a secondary review layer to assess answer quality, "
+        "safety, and escalation behaviour. It is not treated as ground truth; its outputs are "
+        "compared against a small golden dataset and monitored over time.*"
+    )
+
+    st.divider()
+
+    # ── Productivity Note ─────────────────────────────────────────
+    productivity_path = project_root / "data" / "synthetic_productivity_data.csv"
+    if productivity_path.exists():
+        st.markdown(
+            "**Productivity artefact.** A synthetic dataset comparing manual vs AI-assisted "
+            "support workflows (15 scenarios) is available at "
+            "`data/synthetic_productivity_data.csv`. This demonstrates how an SME could "
+            "compare manual and AI-assisted workflows. In a real deployment, this could be "
+            "extended to panel or firm-level analysis using difference-in-differences, "
+            "fixed effects models, or count-data approaches depending on the outcome variable."
+        )
+        st.divider()
+
+    # ── I. Download Governance Pack ───────────────────────────────
+    st.subheader("I. Download Governance Pack")
+
+    st.markdown("Download individual governance artefacts for offline review:")
+
+    gov_files = [
+        ("system_card.md", "text/markdown"),
+        ("model_card.md", "text/markdown"),
+        ("rag_evaluation_report.md", "text/markdown"),
+        ("sme_ai_risk_register.csv", "text/csv"),
+        ("incident_log_template.csv", "text/csv"),
+        ("human_escalation_checklist.md", "text/markdown"),
+        ("ai_use_case_taxonomy.csv", "text/csv"),
+        ("deployment_readiness_checklist.md", "text/markdown"),
+    ]
+
+    for fname, mime in gov_files:
+        fpath = gov_dir / fname
+        if fpath.exists():
+            content = fpath.read_text()
+            st.download_button(
+                label=f"Download {fname}",
+                data=content,
+                file_name=fname,
+                mime=mime,
+                key=f"gov_dl_{fname}",
+                use_container_width=True,
+            )
+
+    st.divider()
+
+    st.caption(
+        "**Disclaimer:** This is a V1 portfolio prototype using synthetic data. "
+        "It is not a production legal, financial, HR, or compliance system. "
+        "Governance artefacts are illustrative and should be adapted to each "
+        "organisation's context before deployment."
     )
