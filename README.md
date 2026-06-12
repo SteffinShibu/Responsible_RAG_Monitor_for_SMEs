@@ -293,6 +293,8 @@ EVALUATOR_MODEL_NAME = "ministral-8b-2512"
 
 The dashboard works without API keys for visualising existing evaluation results.
 
+The deployed Streamlit app uses a lightweight GitHub Actions keep-alive workflow (`.github/workflows/keep-streamlit-awake.yml`) that periodically pings the public demo URL. This is only for portfolio-demo availability and does not perform any evaluation or API calls.
+
 ---
 
 ## Limitations
