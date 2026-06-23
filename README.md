@@ -1,6 +1,6 @@
 # Responsible RAG Monitor for SMEs
 
-A responsible AI evaluation and monitoring toolkit for SME retrieval-augmented generation (RAG) systems. Built as a portfolio project for UvA's _AI for All_ PhD programme.
+A responsible AI evaluation and monitoring toolkit for SME retrieval-augmented generation (RAG) systems. Built as a portfolio project.
 
 > **This is not just a chatbot.** The RAG assistant is the user-facing test system. The main contribution is the evaluation, monitoring, and governance layer around it.
 
